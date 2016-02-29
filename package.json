@@ -1,0 +1,30 @@
+{
+  "name": "nodegresql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "serve": "nodemon app.js",
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albennett/nodegresql.git"
+  },
+  "author": "Amy Lee Bennett <amyleeannebennett@gmail.com> (https://www.amylee.co/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/albennett/nodegresql/issues"
+  },
+  "homepage": "https://github.com/albennett/nodegresql#readme",
+  "dependencies": {
+    "pg": "^4.5.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.19.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.1",
+    "sequelize-cli": "^2.3.1"
+  }
+}
