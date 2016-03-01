@@ -35,10 +35,21 @@ app.get('/artists', (req, res) => {
   });
 });
 
-app.get('/playlist', (req, res) => {
-  models.Playlist.findAll().then((playlist) => {
-    res.send(playlist);
+app.get('/playlists', (req, res) => {
+  models.Playlist.findAll().then((playlists) => {
+    res.send(playlists);
   });
+});
+
+app.get('/albums', (req, res) => {
+  models.Album.findAll({
+      attributes: { exclude: ['ArtistId'] },
+      include: {
+        model: models.Artist,
+        attributes: { exclude: ['ArtistId'] }
+      }
+    })
+    .then(albums => res.send(albums));
 });
 
 app.listen(PORT, () => {
