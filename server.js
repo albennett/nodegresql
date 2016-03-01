@@ -41,6 +41,20 @@ app.get('/playlists', (req, res) => {
   });
 });
 
+app.get('/invoices', (req, res) => {
+  models.Invoice.findAll({
+      attributes: { exclude: 'CustomerId' },
+      include: {
+        model: models.Customer,
+        attributes: { exclude: [
+          'CustomerId',
+          'SupportRepId'
+        ] }
+      }
+    })
+    .then(invoices => res.send(invoices));
+});
+
 app.get('/albums', (req, res) => {
   models.Album.findAll({
       attributes: { exclude: ['ArtistId'] },
@@ -50,6 +64,11 @@ app.get('/albums', (req, res) => {
       }
     })
     .then(albums => res.send(albums));
+});
+
+app.get('/customers', (req, res) => {
+  models.Customer.findAll()
+    .then(customers => res.send(customers));
 });
 
 app.listen(PORT, () => {
