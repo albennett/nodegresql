@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/albennett/nodegresql#readme",
   "dependencies": {
+    "express": "^4.13.4",
     "pg": "^4.5.1",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.19.3"
