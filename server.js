@@ -55,6 +55,24 @@ app.get('/invoices', (req, res) => {
     .then(invoices => res.send(invoices));
 });
 
+app.get('/customers/:id', (req, res) => {
+  models.Customer.findOne({
+    where: {
+      CustomerId: req.params.id
+    }
+  }).then(customer => res.send(customer));
+});
+
+app.get('/customers/:id/invoices', (req, res) => {
+  models.Customer.findOne({
+    where: {
+      CustomerId: req.params.id
+    },
+    include: models.Invoice
+  })
+  .then(invoices => res.send(invoices));
+});
+
 app.get('/albums', (req, res) => {
   models.Album.findAll({
       attributes: { exclude: ['ArtistId'] },
